@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const PROJECT_TYPES = [
-  'RESIDENTIAL',
-  'COMMERCIAL',
-  'ARCHITECTURE',
-  'RENOVATION',
-  'INDUSTRIAL',
+  'FENCING',
+  'LANDSCAPING',
+  'RETAINING WALLS',
+  'CONCRETE WORK',
+  'STORMWATER MANAGEMENT',
   'OTHER',
 ];
 
@@ -29,15 +29,23 @@ export default function ContactForm() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState('loading');
 
     try {
-      const res = await fetch('/api/contact', {
+      const fd = new FormData();
+      fd.append('access_key', '7480f5ba-8b97-45f0-9441-4b5890dc5701');
+      fd.append('name', formData.name);
+      fd.append('email', formData.email);
+      fd.append('subject', `New Project Inquiry — ${formData.projectType || 'General'}`);
+      fd.append('Project Type', formData.projectType || 'Not specified');
+      fd.append('message', formData.message);
+      fd.append('from_name', '24X Construction Website');
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: fd,
       });
 
       const data = await res.json();
@@ -45,7 +53,7 @@ export default function ContactForm() {
         setFormState('success');
         setFormData({ name: '', email: '', projectType: '', message: '' });
       } else {
-        console.error('Contact form error:', data.error);
+        console.error('Web3Forms error:', data);
         setFormState('error');
       }
     } catch (err) {
@@ -149,25 +157,6 @@ export default function ContactForm() {
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 0.8s ease 0.5s'
             }}>
-              {/* HQ */}
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '36px', height: '36px', flexShrink: 0,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(245,158,11,0.1)', color: 'var(--primary)',
-                }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="label-sm" style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>HEADQUARTERS</div>
-                  <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--on-surface-variant)' }}>
-                    104 Monolith Ave, Steel District<br />New York, NY 10001
-                  </p>
-                </div>
-              </div>
 
               {/* Email */}
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
@@ -184,7 +173,7 @@ export default function ContactForm() {
                 <div>
                   <div className="label-sm" style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>PROJECT INQUIRIES</div>
                   <a
-                    href="mailto:build@24xconstruction.com"
+                    href="mailto:info@24xconstruction.com"
                     style={{
                       fontFamily: "'Manrope', sans-serif",
                       fontSize: '0.9rem',
@@ -195,7 +184,7 @@ export default function ContactForm() {
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--on-surface-variant)')}
                   >
-                    build@24xconstruction.com
+                    info@24xconstruction.com
                   </a>
                 </div>
               </div>
@@ -214,7 +203,7 @@ export default function ContactForm() {
                 <div>
                   <div className="label-sm" style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>DIRECT LINE</div>
                   <a
-                    href="tel:+12125550194"
+                    href="tel:+610480808600"
                     style={{
                       fontFamily: "'Manrope', sans-serif",
                       fontSize: '0.9rem',
@@ -225,7 +214,7 @@ export default function ContactForm() {
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--on-surface-variant)')}
                   >
-                    +1 (212) 555-0194
+                    +61 0480 808 600
                   </a>
                 </div>
               </div>

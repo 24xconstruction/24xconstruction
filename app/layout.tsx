@@ -3,11 +3,11 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: '24X CONSTRUCTION | ARCHITECTURAL DOMINANCE',
-  description: 'We don\'t just build structures — we build legacy. Premium construction, architecture, and renovation services with unyielding standards of excellence.',
+  description: 'Building dreams into reality. Premium construction, architecture, and renovation services with unyielding standards of excellence.',
   keywords: 'construction, architecture, renovation, residential, commercial, luxury building',
   openGraph: {
     title: '24X CONSTRUCTION | ARCHITECTURAL DOMINANCE',
-    description: 'We don\'t just build structures — we build legacy.',
+    description: 'Building dreams into reality.',
     type: 'website',
   },
 };

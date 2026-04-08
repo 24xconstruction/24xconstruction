@@ -6,9 +6,9 @@ interface UseScrollAnimationOptions {
   triggerOnce?: boolean;
 }
 
-export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
+export function useScrollAnimation<T extends HTMLElement = HTMLElement>(options: UseScrollAnimationOptions = {}) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<T>(null);
 
   const {
     threshold = 0.1,
@@ -41,9 +41,9 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   return { ref, isVisible };
 }
 
-export function useStaggeredAnimation(itemCount: number, options: UseScrollAnimationOptions = {}) {
+export function useStaggeredAnimation<T extends HTMLElement = HTMLElement>(itemCount: number, options: UseScrollAnimationOptions = {}) {
   const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(itemCount).fill(false));
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<T>(null);
 
   const {
     threshold = 0.1,

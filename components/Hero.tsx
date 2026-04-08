@@ -2,64 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-function StatCounter({ endValue, suffix, label }: { endValue: number; suffix: string; label: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const duration = 2000; // 2 seconds animation
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out quart
-            const easeOut = 1 - Math.pow(1 - progress, 4);
-            setCount(Math.floor(easeOut * endValue));
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-          requestAnimationFrame(animate);
-          observer.disconnect(); // Unhook after starting animation
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => observer.disconnect();
-  }, [endValue]);
-
-  return (
-    <div ref={ref}>
-      <div style={{
-        fontFamily: "'Space Grotesk', sans-serif",
-        fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
-        fontWeight: 700,
-        letterSpacing: '-0.04em',
-        background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
-        lineHeight: 1.1,
-        marginBottom: '0.4rem',
-      }}>
-        {count}{suffix}
-      </div>
-      <div className="label-sm" style={{ color: 'var(--on-surface-variant)' }}>
-        {label}
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -101,7 +43,7 @@ export default function Hero() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
-          src="https://res.cloudinary.com/dkvxfm1nu/image/upload/q_auto/f_auto/v1775581822/1775581271255_kpswfi.png" 
+          src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775650371/Gemini_Generated_Image_ql03j8ql03j8ql03_i7iqxm.png" 
           alt="Architectural Construction Background" 
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
@@ -163,7 +105,7 @@ export default function Hero() {
             transition: 'all 0.8s ease 0.2s'
           }}
         >
-          EST. 2008 · ARCHITECTURAL DOMINANCE
+          PREMIUM OUTDOOR SOLUTIONS
         </div>
 
         {/* Main headline */}
@@ -180,16 +122,13 @@ export default function Hero() {
             transition: 'all 1s ease 0.4s'
           }}
         >
-          WE DON&apos;T JUST BUILD{' '}
+          ELEVATING YOUR{' '}
           <span style={{
             background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-          }}>STRUCTURES</span>
-          {' '}—{' '}
-          WE BUILD{' '}
-          <span style={{ color: 'var(--on-surface)' }}>LEGACY</span>
+          }}>EXTERIOR</span>
         </h1>
 
         {/* Subtext */}
@@ -205,10 +144,10 @@ export default function Hero() {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease 0.6s'
         }}>
-          Engineering excellence at sub-millimeter tolerances. Every structure we create is a permanent mark on the skyline — built to survive centuries.
+          Expert residential construction tailored for Australian homes. From engineered retaining walls and flawless concrete to durable fencing, we deliver quality that stands the test of time.
         </p>
 
-        {/* CTAs */}
+        {/* CTA */}
         <div style={{ 
           display: 'flex', 
           gap: '1rem', 
@@ -219,46 +158,12 @@ export default function Hero() {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease 0.8s'
         }}>
-          <a href="#portfolio" className="btn-primary" style={{ minWidth: 'fit-content' }}>
-            VIEW OUR WORK
+          <a href="#contact" className="btn-primary" style={{ minWidth: 'fit-content' }}>
+            GET YOUR QUOTE
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <a href="#contact" className="btn-ghost" style={{ minWidth: 'fit-content' }}>
-            INITIATE PROJECT
-          </a>
-        </div>
-
-        {/* Stats row */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-          gap: '0',
-          marginTop: '6rem',
-          maxWidth: '800px',
-        }} className="stats-grid">
-          {[
-            { endValue: 500, suffix: '+', label: 'Projects Delivered' },
-            { endValue: 18, suffix: '', label: 'Years Dominance' },
-            { endValue: 3, suffix: '', label: 'Global Offices' },
-            { endValue: 99, suffix: '%', label: 'On-Time Delivery' },
-          ].map((stat, i) => (
-            <div
-              key={stat.label}
-              style={{
-                padding: '2rem 0',
-                borderTop: '1px solid rgba(83,68,52,0.25)',
-                borderRight: i < 3 ? '1px solid rgba(83,68,52,0.15)' : 'none',
-                paddingRight: i < 3 ? '1.5rem' : '0',
-                paddingLeft: i > 0 ? '1.5rem' : '0',
-                textAlign: 'center',
-              }}
-              className="stat-item"
-            >
-              <StatCounter endValue={stat.endValue} suffix={stat.suffix} label={stat.label} />
-            </div>
-          ))}
         </div>
       </div>
 
