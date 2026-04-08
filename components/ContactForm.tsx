@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const PROJECT_TYPES = [
   'RESIDENTIAL',
@@ -22,6 +23,7 @@ export default function ContactForm() {
   });
   const [formState, setFormState] = useState<FormState>('idle');
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -83,6 +85,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
+      ref={sectionRef}
       style={{
         background: 'var(--surface)',
         padding: '7rem 0',
@@ -113,18 +116,39 @@ export default function ContactForm() {
         >
           {/* ── LEFT: Info ── */}
           <div>
-            <div className="section-tag" style={{ marginBottom: '1.5rem' }}>
+            <div 
+              className="section-tag" 
+              style={{ 
+                marginBottom: '1.5rem',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transition: 'all 0.8s ease 0.1s'
+              }}
+            >
               DEPLOYMENT CENTER
             </div>
             <h2
               className="display-md"
-              style={{ color: 'var(--on-surface)', marginBottom: '3rem' }}
+              style={{ 
+                color: 'var(--on-surface)', 
+                marginBottom: '3rem',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+                transition: 'all 0.8s ease 0.3s'
+              }}
             >
               GET IN TOUCH
             </h2>
 
             {/* Info items */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '2.5rem',
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s ease 0.5s'
+            }}>
               {/* HQ */}
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <div style={{
@@ -209,7 +233,11 @@ export default function ContactForm() {
           </div>
 
           {/* ── RIGHT: Form ── */}
-          <div>
+          <div style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateX(0)' : 'translateX(40px)',
+            transition: 'all 0.8s ease 0.4s'
+          }}>
             {formState === 'success' ? (
               <div style={{
                 padding: '4rem 3rem',

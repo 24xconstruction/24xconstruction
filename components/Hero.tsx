@@ -61,9 +61,30 @@ function StatCounter({ endValue, suffix, label }: { endValue: number; suffix: st
 }
 
 export default function Hero() {
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="hero"
+      ref={heroRef}
       className="hero-section"
       style={{
         minHeight: '100vh',
@@ -133,7 +154,15 @@ export default function Hero() {
 
       <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: '4rem', paddingBottom: '6rem' }}>
         {/* Section tag */}
-        <div className="section-tag" style={{ marginBottom: '2rem', animationDelay: '0.1s' }}>
+        <div 
+          className="section-tag" 
+          style={{ 
+            marginBottom: '2rem',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'all 0.8s ease 0.2s'
+          }}
+        >
           EST. 2008 · ARCHITECTURAL DOMINANCE
         </div>
 
@@ -144,6 +173,11 @@ export default function Hero() {
             color: 'var(--on-surface)',
             maxWidth: '1000px',
             marginBottom: '2rem',
+            wordWrap: 'break-word',
+            hyphens: 'auto',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
+            transition: 'all 1s ease 0.4s'
           }}
         >
           WE DON&apos;T JUST BUILD{' '}
@@ -167,19 +201,31 @@ export default function Hero() {
           maxWidth: '560px',
           marginBottom: '3rem',
           fontWeight: 400,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'all 0.8s ease 0.6s'
         }}>
           Engineering excellence at sub-millimeter tolerances. Every structure we create is a permanent mark on the skyline — built to survive centuries.
         </p>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-          <a href="#portfolio" className="btn-primary">
+        <div style={{ 
+          display: 'flex', 
+          gap: '1rem', 
+          flexWrap: 'wrap', 
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'all 0.8s ease 0.8s'
+        }}>
+          <a href="#portfolio" className="btn-primary" style={{ minWidth: 'fit-content' }}>
             VIEW OUR WORK
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <a href="#contact" className="btn-ghost">
+          <a href="#contact" className="btn-ghost" style={{ minWidth: 'fit-content' }}>
             INITIATE PROJECT
           </a>
         </div>
@@ -187,11 +233,11 @@ export default function Hero() {
         {/* Stats row */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
           gap: '0',
           marginTop: '6rem',
           maxWidth: '800px',
-        }}>
+        }} className="stats-grid">
           {[
             { endValue: 500, suffix: '+', label: 'Projects Delivered' },
             { endValue: 18, suffix: '', label: 'Years Dominance' },
@@ -204,9 +250,11 @@ export default function Hero() {
                 padding: '2rem 0',
                 borderTop: '1px solid rgba(83,68,52,0.25)',
                 borderRight: i < 3 ? '1px solid rgba(83,68,52,0.15)' : 'none',
-                paddingRight: '2rem',
-                paddingLeft: i > 0 ? '2rem' : '0',
+                paddingRight: i < 3 ? '1.5rem' : '0',
+                paddingLeft: i > 0 ? '1.5rem' : '0',
+                textAlign: 'center',
               }}
+              className="stat-item"
             >
               <StatCounter endValue={stat.endValue} suffix={stat.suffix} label={stat.label} />
             </div>
@@ -234,6 +282,33 @@ export default function Hero() {
           animation: 'pulse-glow 2s ease-in-out infinite',
         }} />
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .hero-section {
+            padding-top: 72px !important;
+            min-height: 100vh !important;
+          }
+          .hero-section .container {
+            padding-top: 2rem !important;
+            padding-bottom: 4rem !important;
+          }
+          .hero-section .display-xl {
+            font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+            line-height: 1.15 !important;
+            margin-bottom: 1.5rem !important;
+          }
+          .hero-section .btn-primary,
+          .hero-section .btn-ghost {
+            width: 100% !important;
+            margin-bottom: 0.75rem !important;
+          }
+          .hero-section .btn-primary:last-child,
+          .hero-section .btn-ghost:last-child {
+            margin-bottom: 0 !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

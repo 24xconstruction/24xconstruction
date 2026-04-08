@@ -146,6 +146,28 @@ export default function Navbar() {
           .hamburger { display: flex !important; }
           nav a.btn-primary { display: none !important; }
         }
+        @media (max-width: 480px) {
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1px !important;
+            background: rgba(83,68,52,0.15);
+            margin-top: 4rem !important;
+          }
+          .stat-item {
+            padding: 1.5rem 1rem !important;
+            border-right: none !important;
+            border-top: none !important;
+            background: var(--surface-container-low);
+            text-align: center !important;
+          }
+          .stat-item:nth-child(odd) {
+            border-right: 1px solid rgba(83,68,52,0.15) !important;
+          }
+          .stat-item:nth-child(1),
+          .stat-item:nth-child(2) {
+            border-bottom: 1px solid rgba(83,68,52,0.15) !important;
+          }
+        }
       `}</style>
     </nav>
   );

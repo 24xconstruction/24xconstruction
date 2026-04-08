@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation';
 
 const services = [
   {
@@ -51,22 +52,34 @@ const services = [
 
 export default function Services() {
   const [hovered, setHovered] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.15 });
-    if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
+  const { ref: cardsRef, visibleItems } = useStaggeredAnimation(services.length, { threshold: 0.1 });
 
   return (
     <section id="services" ref={sectionRef} style={{ background: 'var(--surface-container-low)', padding: '7rem 0' }}>
       <div className="container">
         {/* Header */}
         <div style={{ marginBottom: '4rem' }}>
-          <div className="section-tag">WHAT WE BUILD</div>
-          <h2 className="display-lg" style={{ color: 'var(--on-surface)', maxWidth: '600px' }}>
+          <div 
+            className="section-tag"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s ease 0.1s'
+            }}
+          >
+            WHAT WE BUILD
+          </div>
+          <h2 
+            className="display-lg" 
+            style={{ 
+              color: 'var(--on-surface)', 
+              maxWidth: '600px',
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+              transition: 'all 0.8s ease 0.3s'
+            }}
+          >
             CORE<br />
             <span style={{
               background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
@@ -78,13 +91,17 @@ export default function Services() {
         </div>
 
         {/* Cards grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1px',
-          background: 'rgba(83,68,52,0.2)',
-          border: '1px solid rgba(83,68,52,0.2)',
-        }}>
+        <div 
+          ref={cardsRef}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1px',
+            background: 'rgba(83,68,52,0.2)',
+            border: '1px solid rgba(83,68,52,0.2)',
+          }} 
+          className="services-grid"
+        >
           {services.map((s, i) => (
             <div
               key={s.tag}
@@ -95,10 +112,10 @@ export default function Services() {
                 background: hovered === i ? 'var(--surface-container-highest)' : 'var(--surface-container-high)',
                 transition: 'all 0.35s ease',
                 transform: hovered === i ? 'translateY(-4px)' : 'translateY(0)',
-                opacity: visible ? 1 : 0,
-                animation: visible ? `fadeInUp 0.6s ease ${i * 0.12}s forwards` : 'none',
+                opacity: visibleItems[i] ? 1 : 0,
                 cursor: 'default',
               }}
+              className="service-card"
             >
               {/* Icon */}
               <div style={{
@@ -109,8 +126,10 @@ export default function Services() {
                 justifyContent: 'center',
                 background: hovered === i ? 'rgba(245,158,11,0.12)' : 'rgba(83,68,52,0.25)',
                 marginBottom: '1.75rem',
-                transition: 'background 0.3s',
+                transition: 'all 0.3s',
                 color: hovered === i ? 'var(--primary)' : 'var(--on-surface-variant)',
+                transform: visibleItems[i] ? 'scale(1) rotate(0deg)' : 'scale(0.8) rotate(-10deg)',
+                transitionDelay: '0.1s',
               }}>
                 {s.icon}
               </div>
@@ -144,7 +163,8 @@ export default function Services() {
                 alignItems: 'center',
                 gap: '0.5rem',
                 color: hovered === i ? 'var(--primary)' : 'rgba(83,68,52,0.6)',
-                transition: 'color 0.3s',
+                transition: 'all 0.3s',
+                transform: hovered === i ? 'translateX(4px)' : 'translateX(0)',
               }}>
                 <span className="label-sm">LEARN MORE</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -155,6 +175,19 @@ export default function Services() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
+          }
+          .service-card {
+            padding: 2rem 1.5rem !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
