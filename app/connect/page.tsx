@@ -4,31 +4,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export default function ConnectPage() {
-  const handleSaveContact = () => {
-    const vcard = [
-      'BEGIN:VCARD',
-      'VERSION:3.0',
-      'N:Singh;Lovepreet & Baghdeep;;;',
-      'FN:Lovepreet Singh & Baghdeep Singh',
-      'ORG:24X Construction',
-      'TEL;TYPE=CELL:+61480808600',
-      'EMAIL:info@24xconstruction.com',
-      'URL:https://24xconstruction.com',
-      'NOTE:Premium Residential Construction - Managing Directors',
-      'END:VCARD',
-    ].join('\n');
-
-    const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = '24X_Construction_Contact.vcf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <>
       <Navbar />
@@ -251,7 +226,11 @@ export default function ConnectPage() {
 
             {/* Action Buttons Row */}
             <div className="connect-buttons" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '0.5rem' }}>
-              <button style={{
+              <a href="/api/vcard" style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textDecoration: 'none',
                 background: 'var(--primary-container)',
                 color: '#131313',
                 fontFamily: "'Manrope', sans-serif",
@@ -262,9 +241,9 @@ export default function ConnectPage() {
                 borderRadius: '10px',
                 cursor: 'pointer',
                 transition: 'opacity 0.2s',
-              }} onClick={handleSaveContact} onMouseEnter={e => e.currentTarget.style.opacity = '0.9'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+              }} onMouseEnter={e => e.currentTarget.style.opacity = '0.9'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
                 Save Contact
-              </button>
+              </a>
               <a href="/" style={{
                 display: 'flex',
                 justifyContent: 'center',
