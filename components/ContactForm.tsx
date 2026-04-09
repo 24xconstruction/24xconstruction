@@ -149,22 +149,28 @@ export default function ContactForm() {
             </h2>
 
             {/* Info items */}
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              gap: '2.5rem',
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-              transition: 'all 0.8s ease 0.5s'
-            }}>
+            <div 
+              className="contact-info-grid"
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '2.5rem',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transition: 'all 0.8s ease 0.5s'
+              }}
+            >
 
               {/* Email */}
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '36px', height: '36px', flexShrink: 0,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(245,158,11,0.1)', color: 'var(--primary)',
-                }}>
+              <div className="contact-info-item" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <div 
+                  className="contact-info-icon"
+                  style={{
+                    width: '36px', height: '36px', flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: 'rgba(245,158,11,0.1)', color: 'var(--primary)',
+                  }}
+                >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
@@ -190,12 +196,15 @@ export default function ContactForm() {
               </div>
 
               {/* Phone */}
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '36px', height: '36px', flexShrink: 0,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(245,158,11,0.1)', color: 'var(--primary)',
-                }}>
+              <div className="contact-info-item" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <div 
+                  className="contact-info-icon"
+                  style={{
+                    width: '36px', height: '36px', flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: 'rgba(245,158,11,0.1)', color: 'var(--primary)',
+                  }}
+                >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
                   </svg>
@@ -228,12 +237,15 @@ export default function ContactForm() {
             transition: 'all 0.8s ease 0.4s'
           }}>
             {formState === 'success' ? (
-              <div style={{
-                padding: '4rem 3rem',
-                background: 'var(--surface-container-high)',
-                textAlign: 'center',
-                border: '1px solid rgba(245,158,11,0.15)',
-              }}>
+              <div 
+                className="success-message"
+                style={{
+                  padding: '4rem 3rem',
+                  background: 'var(--surface-container-high)',
+                  textAlign: 'center',
+                  border: '1px solid rgba(245,158,11,0.15)',
+                }}
+              >
                 <div style={{
                   width: '56px', height: '56px',
                   background: 'rgba(245,158,11,0.12)',
@@ -260,7 +272,7 @@ export default function ContactForm() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {/* Full Name */}
                 <div>
                   <input
@@ -273,7 +285,10 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField('name')}
                     onBlur={() => setFocusedField(null)}
-                    style={getInputStyle('name')}
+                    style={{
+                      ...getInputStyle('name'),
+                    }}
+                    className="mobile-input"
                   />
                 </div>
 
@@ -289,7 +304,10 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
-                    style={getInputStyle('email')}
+                    style={{
+                      ...getInputStyle('email'),
+                    }}
+                    className="mobile-input"
                   />
                 </div>
 
@@ -435,20 +453,103 @@ export default function ContactForm() {
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* Mobile Optimizations */
         @media (max-width: 900px) {
           .contact-grid {
             grid-template-columns: 1fr !important;
             gap: 3rem !important;
           }
         }
+        
+        @media (max-width: 768px) {
+          .contact-grid {
+            gap: 2.5rem !important;
+          }
+          
+          /* Reduce section padding on mobile */
+          #contact {
+            padding: 4rem 0 !important;
+          }
+          
+          /* Stack contact info items vertically with better spacing */
+          .contact-info-grid {
+            gap: 2rem !important;
+          }
+          
+          /* Optimize form spacing */
+          .contact-form {
+            gap: 1.25rem !important;
+          }
+          
+          /* Better button sizing */
+          .contact-submit-btn {
+            padding: 1rem 2rem !important;
+            font-size: 0.8rem !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          /* Further reduce padding for small screens */
+          #contact {
+            padding: 3rem 0 !important;
+          }
+          
+          .contact-grid {
+            gap: 2rem !important;
+          }
+          
+          /* Smaller input padding for mobile */
+          .mobile-input {
+            padding: 0.9rem 1rem !important;
+            font-size: 0.8rem !important;
+          }
+          
+          /* Compact contact info */
+          .contact-info-item {
+            gap: 0.75rem !important;
+          }
+          
+          .contact-info-icon {
+            width: 32px !important;
+            height: 32px !important;
+          }
+          
+          /* Mobile-friendly button */
+          .contact-submit-btn {
+            padding: 0.9rem 1.5rem !important;
+            font-size: 0.75rem !important;
+          }
+          
+          /* Adjust success message padding */
+          .success-message {
+            padding: 3rem 2rem !important;
+          }
+        }
+        
+        /* Input placeholder styling */
         input::placeholder, textarea::placeholder {
           color: rgba(216,195,173,0.4);
           font-family: 'Manrope', sans-serif;
           font-size: 0.75rem;
           letter-spacing: 0.1em;
         }
+        
+        @media (max-width: 480px) {
+          input::placeholder, textarea::placeholder {
+            font-size: 0.7rem;
+          }
+        }
+        
         select option {
           background: #2A2A2A;
+        }
+        
+        /* Improve touch targets on mobile */
+        @media (max-width: 768px) {
+          input, textarea, select, button {
+            min-height: 44px;
+          }
         }
       `}</style>
     </section>
