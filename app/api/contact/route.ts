@@ -34,13 +34,17 @@ export async function POST(req: NextRequest) {
     console.log('=============================');
 
     // --- 4. Send via Web3Forms (optional, non-blocking) ---
-    const apiKey = process.env.WEB3FORMS_KEY;
+    const apiKey = process.env.WEB3FORMS_KEY?.trim();
 
     if (apiKey && apiKey !== 'your_web3forms_access_key_here') {
       try {
         const w3Res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json', 
+            'Accept': 'application/json',
+            'User-Agent': req.headers.get('user-agent') || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          },
           body: JSON.stringify({
             access_key: apiKey,
             subject: `New Project Inquiry — ${projectType ?? 'General'}`,

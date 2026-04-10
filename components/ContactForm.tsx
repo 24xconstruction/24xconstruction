@@ -34,18 +34,22 @@ export default function ContactForm() {
     setFormState('loading');
 
     try {
-      const fd = new FormData();
-      fd.append('access_key', '7480f5ba-8b97-45f0-9441-4b5890dc5701');
-      fd.append('name', formData.name);
-      fd.append('email', formData.email);
+      const fd = new FormData(e.currentTarget);
+      fd.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '');
       fd.append('subject', `New Project Inquiry — ${formData.projectType || 'General'}`);
-      fd.append('Project Type', formData.projectType || 'Not specified');
-      fd.append('message', formData.message);
       fd.append('from_name', '24X Construction Website');
+
+      // Convert FormData into JSON for React integration
+      const object = Object.fromEntries(fd);
+      const json = JSON.stringify(object);
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: fd,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
       });
 
       const data = await res.json();
@@ -53,7 +57,7 @@ export default function ContactForm() {
         setFormState('success');
         setFormData({ name: '', email: '', projectType: '', message: '' });
       } else {
-        console.error('Web3Forms error:', data);
+        console.error('API error:', data);
         setFormState('error');
       }
     } catch (err) {
@@ -124,9 +128,9 @@ export default function ContactForm() {
         >
           {/* ── LEFT: Info ── */}
           <div>
-            <div 
-              className="section-tag" 
-              style={{ 
+            <div
+              className="section-tag"
+              style={{
                 marginBottom: '1.5rem',
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -137,8 +141,8 @@ export default function ContactForm() {
             </div>
             <h2
               className="display-md"
-              style={{ 
-                color: 'var(--on-surface)', 
+              style={{
+                color: 'var(--on-surface)',
                 marginBottom: '3rem',
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
@@ -149,11 +153,11 @@ export default function ContactForm() {
             </h2>
 
             {/* Info items */}
-            <div 
+            <div
               className="contact-info-grid"
-              style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
                 gap: '2.5rem',
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -163,7 +167,7 @@ export default function ContactForm() {
 
               {/* Email */}
               <div className="contact-info-item" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div 
+                <div
                   className="contact-info-icon"
                   style={{
                     width: '36px', height: '36px', flexShrink: 0,
@@ -172,8 +176,8 @@ export default function ContactForm() {
                   }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
                 <div>
@@ -197,7 +201,7 @@ export default function ContactForm() {
 
               {/* Phone */}
               <div className="contact-info-item" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div 
+                <div
                   className="contact-info-icon"
                   style={{
                     width: '36px', height: '36px', flexShrink: 0,
@@ -206,7 +210,7 @@ export default function ContactForm() {
                   }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14.92z" />
                   </svg>
                 </div>
                 <div>
@@ -237,7 +241,7 @@ export default function ContactForm() {
             transition: 'all 0.8s ease 0.4s'
           }}>
             {formState === 'success' ? (
-              <div 
+              <div
                 className="success-message"
                 style={{
                   padding: '4rem 3rem',
@@ -254,7 +258,7 @@ export default function ContactForm() {
                   color: 'var(--primary)',
                 }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"/>
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
                 <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--on-surface)', marginBottom: '0.75rem' }}>
@@ -342,7 +346,7 @@ export default function ContactForm() {
                     color: 'var(--outline)',
                   }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9"/>
+                      <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </div>
                 </div>
@@ -419,8 +423,8 @@ export default function ContactForm() {
                   {formState === 'loading' ? (
                     <>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ animation: 'spin 1s linear infinite' }}>
-                        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0" opacity="0.3"/>
-                        <path d="M12 3a9 9 0 019 9"/>
+                        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0" opacity="0.3" />
+                        <path d="M12 3a9 9 0 019 9" />
                       </svg>
                       TRANSMITTING...
                     </>
@@ -428,8 +432,8 @@ export default function ContactForm() {
                     <>
                       SEND MISSION BRIEF
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        <line x1="22" y1="2" x2="11" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
                       </svg>
                     </>
                   )}
