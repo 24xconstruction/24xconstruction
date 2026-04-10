@@ -200,7 +200,7 @@ export default function Services() {
               transition: 'all 0.8s ease 0.1s'
             }}
           >
-            WHAT WE BUILD
+            Services
           </div>
           <h2 
             className="display-lg" 
@@ -212,7 +212,13 @@ export default function Services() {
               transition: 'all 0.8s ease 0.3s'
             }}
           >
-            SPECIALIST EXTERNAL WORKS
+            Construction 
+            <span style={{
+              background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>SERVICES</span>
           </h2>
           <p style={{
             fontFamily: "'Manrope', sans-serif",
