@@ -218,7 +218,7 @@ export default function Services() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>SPECIALIZATIONS</span>
+            }}>SERVICES</span>
           </h2>
         </div>
 
