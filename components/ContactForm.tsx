@@ -137,7 +137,7 @@ export default function ContactForm() {
                 transition: 'all 0.8s ease 0.1s'
               }}
             >
-              CONTACT
+              CONTACT US
             </div>
             <h2
               className="display-md"
