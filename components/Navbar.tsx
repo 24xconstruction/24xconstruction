@@ -18,7 +18,6 @@ export default function Navbar() {
     { label: 'HOME', href: '/' },
     { label: 'SERVICES', href: '/#services' },
     { label: 'CONTACT', href: '/#contact' },
-    { label: 'CONNECT', href: '/connect' },
   ];
 
   // Prevent hydration mismatch by ensuring consistent initial render
