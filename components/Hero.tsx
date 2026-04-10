@@ -105,7 +105,7 @@ export default function Hero() {
             transition: 'all 0.8s ease 0.2s'
           }}
         >
-          PREMIUM OUTDOOR SOLUTIONS
+          External Construction Solutions
         </div>
 
         {/* Main headline */}
@@ -122,13 +122,7 @@ export default function Hero() {
             transition: 'all 1s ease 0.4s'
           }}
         >
-          ELEVATING YOUR{' '}
-          <span style={{
-            background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>EXTERIOR</span>
+          Reliable Outdoor Construction for Residential Projects
         </h1>
 
         {/* Subtext */}
@@ -144,7 +138,7 @@ export default function Hero() {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease 0.6s'
         }}>
-          Expert residential construction tailored for Australian homes. From engineered retaining walls and flawless concrete to durable fencing, we deliver quality that stands the test of time.
+          24X Construction delivers stormwater management, fencing, retaining walls, landscaping, and concrete works for residential construction projects. We provide practical, durable solutions with a strong focus on quality workmanship, efficient delivery, and reliable site outcomes.
         </p>
 
         {/* CTA */}
@@ -159,7 +153,7 @@ export default function Hero() {
           transition: 'all 0.8s ease 0.8s'
         }}>
           <a href="#contact" className="btn-primary" style={{ minWidth: 'fit-content' }}>
-            GET YOUR QUOTE
+            Get a Quote
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
