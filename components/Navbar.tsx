@@ -38,29 +38,19 @@ export default function Navbar() {
           transition: 'all 0.4s ease',
         }}
       >
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100px' }}>
           {/* Logo */}
-          <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 700,
-              fontSize: '1.5rem',
-              letterSpacing: '-0.04em',
-              background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>24X</span>
-            <span style={{
-              fontFamily: "'Manrope', sans-serif",
-              fontWeight: 700,
-              fontSize: '0.7rem',
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: 'var(--on-surface-variant)',
-              paddingLeft: '0.5rem',
-              borderLeft: '1px solid rgba(83,68,52,0.5)',
-            }}>CONSTRUCTION</span>
+          <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775841381/24xConstrunction_on0otm.png"
+              alt="24X Construction Logo"
+              style={{ 
+                width: '180px', 
+                height: '90px', 
+                objectFit: 'contain'
+              }}
+            />
           </a>
 
           {/* Desktop Links */}
@@ -141,29 +131,19 @@ export default function Navbar() {
         transition: 'all 0.4s ease',
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100px' }}>
         {/* Logo */}
-        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontWeight: 700,
-            fontSize: '1.5rem',
-            letterSpacing: '-0.04em',
-            background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>24X</span>
-          <span style={{
-            fontFamily: "'Manrope', sans-serif",
-            fontWeight: 700,
-            fontSize: '0.7rem',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--on-surface-variant)',
-            paddingLeft: '0.5rem',
-            borderLeft: '1px solid rgba(83,68,52,0.5)',
-          }}>CONSTRUCTION</span>
+        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775841381/24xConstrunction_on0otm.png"
+            alt="24X Construction Logo"
+            style={{ 
+              width: '180px', 
+              height: '90px', 
+              objectFit: 'contain'
+            }}
+          />
         </a>
 
         {/* Desktop Links */}

@@ -19,20 +19,17 @@ export default function Footer() {
         }}>
           {/* Branding */}
           <div>
-            <div style={{ marginBottom: '1rem' }}>
-              <span style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 700,
-                fontSize: '2rem',
-                letterSpacing: '-0.04em',
-                background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                display: 'block',
-                marginBottom: '0.5rem',
-              }}>24X</span>
-              <span className="label-sm" style={{ color: 'var(--outline)', letterSpacing: '0.14em' }}>CONSTRUCTION</span>
+            <div style={{ marginBottom: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775841381/24xConstrunction_on0otm.png"
+                alt="24X Construction Logo"
+                style={{ 
+                  width: '160px', 
+                  height: '80px', 
+                  objectFit: 'contain'
+                }}
+              />
             </div>
             <p style={{
               fontFamily: "'Manrope', sans-serif",

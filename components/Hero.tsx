@@ -43,7 +43,7 @@ export default function Hero() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
-          src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775650371/Gemini_Generated_Image_ql03j8ql03j8ql03_i7iqxm.png" 
+          src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/modern-residential-outdoor-construction-and-fencing.jpg_fdrygz.jpg" 
           alt="Architectural Construction Background" 
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />

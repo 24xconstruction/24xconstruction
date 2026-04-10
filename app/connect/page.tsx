@@ -46,20 +46,24 @@ export default function ConnectPage() {
               style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
             >
               <div style={{ 
-                width: '56px', 
-                height: '56px', 
-                border: '1px dashed rgba(245, 158, 11, 0.4)', 
-                borderRadius: '16px',
+                width: '120px', 
+                height: '120px', 
+                borderRadius: '20px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: '0.7rem',
-                fontWeight: 700,
-                color: 'var(--primary)',
-                letterSpacing: '0.1em'
+                overflow: 'hidden'
               }}>
-                LOGO
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775822722/2_zzrimh.png"
+                  alt="24X Construction Logo"
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'contain'
+                  }}
+                />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                 <span style={{ 

@@ -19,7 +19,7 @@ const services = [
     tag: 'FENCING',
     headline: 'FENCING SOLUTIONS',
     body: 'Complete fencing services including timber, aluminium, and genuine Colorbond® steel. From residential boundary fences to commercial security barriers, every project is strictly built to Australian Standards.',
-    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644151/Gemini_Generated_Image_466zg4466zg4466z_bt7xki.jpg',
+    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838130/fencing-solution.jpg_yx8sjw.jpg',
     details: {
       description: 'We specialize in durable fencing solutions engineered specifically for the harsh Australian climate. Whether you need to withstand intense sun, heavy storms, or coastal salt air, our expert team installs premium materials that deliver long-lasting privacy, security, and street appeal.',
       types: [
@@ -37,7 +37,7 @@ const services = [
         'Free Site Inspection & Quote',
         'Council Approval Assistance'
       ],
-      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644151/Gemini_Generated_Image_466zg4466zg4466z_bt7xki.jpg'
+      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838130/fencing-solution.jpg_yx8sjw.jpg'
     }
   },
   {
@@ -53,7 +53,7 @@ const services = [
     tag: 'LANDSCAPING',
     headline: 'LANDSCAPING WORKS',
     body: 'Transform your property with expert landscape design and structural construction. From drought-resistant native gardens to premium turf and hardscaping, we build sustainable, low-maintenance outdoor spaces perfectly tailored to the harsh Australian climate.',
-    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_10oh910oh910oh91_ovj2bh.png',
+    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/residential-landscaping-works.jpg_kgyosv.jpg',
     details: {
       description: 'We combine architectural design expertise with practical, hands-on knowledge of local soil conditions to create stunning environments that add real value to your home.',
       types: [
@@ -71,7 +71,7 @@ const services = [
         '12-Month Plant Guarantee',
         'Maintenance Programs Available'
       ],
-      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_10oh910oh910oh91_ovj2bh.png'
+      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/residential-landscaping-works.jpg_kgyosv.jpg'
     }
   },
   {
@@ -87,7 +87,7 @@ const services = [
     tag: 'RETAINING WALLS',
     headline: 'RETAINING WALL SOLUTIONS',
     body: 'Expertly built retaining walls that combine structural integrity with stunning aesthetic appeal. Designed specifically for Australian soil conditions and unpredictable weather, our walls provide long-lasting stability, prevent erosion, and maximize your usable outdoor space.',
-    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644160/Gemini_Generated_Image_gyv7x2gyv7x2gyv7_rd6xno.png',
+    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/retaining-wall-construction.jpg_h7cykr.jpg',
     details: {
       description: 'Whether you need to level a sloping backyard or secure a massive soil load, we ensure every project is built to strict engineering specifications, complete with proper backfill and integrated drainage systems to guarantee decades of performance.',
       types: [
@@ -105,7 +105,7 @@ const services = [
         'Council Approval Support',
         '15-Year Structural Warranty'
       ],
-      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644160/Gemini_Generated_Image_gyv7x2gyv7x2gyv7_rd6xno.png'
+      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/retaining-wall-construction.jpg_h7cykr.jpg'
     }
   },
   {
@@ -120,7 +120,7 @@ const services = [
     tag: 'CONCRETE',
     headline: 'CONCRETE WORKS',
     body: 'Delivering high-quality, structurally sound concrete solutions for residential and commercial properties. From heavy-duty driveways to pristine alfresco spaces, our expert concreters use premium materials, proper steel reinforcement, and precise expansion joints to ensure your concrete withstands Australia\'s harsh climate without cracking.',
-    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_648gmq648gmq648g_wooot9.png',
+    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838132/freshly-poured-residential-concrete-driveway.jpg_xvqyd8.jpg',
     details: {
       description: 'Whether you are looking for a standard structural pour or a high-end decorative finish to boost your home\'s curb appeal, we provide flawless workmanship built for lasting durability.',
       types: [
@@ -138,7 +138,7 @@ const services = [
         '20-Year Structural Guarantee',
         'Weather-Resistant Finishes'
       ],
-      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_648gmq648gmq648g_wooot9.png'
+      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838132/freshly-poured-residential-concrete-driveway.jpg_xvqyd8.jpg'
     }
   },
   {
@@ -154,7 +154,7 @@ const services = [
     tag: 'STORMWATER',
     headline: 'STORMWATER MANAGEMENT',
     body: 'Protect your property from flooding, soil erosion, and foundation damage with expertly engineered stormwater solutions. From sudden, heavy downpours to persistent pooling, we design and install highly effective drainage systems that channel water safely away from your home.',
-    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_qlgwwyqlgwwyqlgw_wwirja.png',
+    image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/residential-stormwater-drainage-grate-installation.jpg_kwqxjw.jpg',
     details: {
       description: 'We ensure all installations strictly comply with local Australian council regulations, effectively managing surface runoff and protecting both your property and your neighbours\'.',
       types: [
@@ -172,7 +172,7 @@ const services = [
         'Council Approved Designs',
         'Maintenance Support Programs'
       ],
-      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_qlgwwyqlgwwyqlgw_wwirja.png'
+      detailImage: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775838135/residential-stormwater-drainage-grate-installation.jpg_kwqxjw.jpg'
     }
   },
 ];

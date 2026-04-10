@@ -16,7 +16,7 @@ export default function About() {
         zIndex: 0,
       }}>
         <img
-          src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775651009/Gemini_Generated_Image_l5yw4sl5yw4sl5yw_rd2lhx.png"
+          src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775838132/contractors-installing-and-leveling-metal-fence.jpg_k75n2h.jpg"
           alt="Construction Background"
           style={{
             width: '100%',
