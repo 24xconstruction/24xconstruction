@@ -17,7 +17,7 @@ const services = [
       </svg>
     ),
     tag: 'FENCING',
-    headline: 'COMPREHENSIVE FENCING SOLUTIONS',
+    headline: 'FENCING SOLUTIONS',
     body: 'Complete fencing services including timber, aluminium, and genuine Colorbond® steel. From residential boundary fences to commercial security barriers, every project is strictly built to Australian Standards.',
     image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644151/Gemini_Generated_Image_466zg4466zg4466z_bt7xki.jpg',
     details: {
@@ -51,7 +51,7 @@ const services = [
       </svg>
     ),
     tag: 'LANDSCAPING',
-    headline: 'PROFESSIONAL LANDSCAPING & OUTDOOR LIVING',
+    headline: 'LANDSCAPING WORKS',
     body: 'Transform your property with expert landscape design and structural construction. From drought-resistant native gardens to premium turf and hardscaping, we build sustainable, low-maintenance outdoor spaces perfectly tailored to the harsh Australian climate.',
     image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_10oh910oh910oh91_ovj2bh.png',
     details: {
@@ -85,7 +85,7 @@ const services = [
       </svg>
     ),
     tag: 'RETAINING WALLS',
-    headline: 'ENGINEERED RETAINING WALLS',
+    headline: 'RETAINING WALL SOLUTIONS',
     body: 'Expertly built retaining walls that combine structural integrity with stunning aesthetic appeal. Designed specifically for Australian soil conditions and unpredictable weather, our walls provide long-lasting stability, prevent erosion, and maximize your usable outdoor space.',
     image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644160/Gemini_Generated_Image_gyv7x2gyv7x2gyv7_rd6xno.png',
     details: {
@@ -118,7 +118,7 @@ const services = [
       </svg>
     ),
     tag: 'CONCRETE WORK',
-    headline: 'PROFESSIONAL CONCRETE SERVICES',
+    headline: 'CONCRETE WORKS',
     body: 'Delivering high-quality, structurally sound concrete solutions for residential and commercial properties. From heavy-duty driveways to pristine alfresco spaces, our expert concreters use premium materials, proper steel reinforcement, and precise expansion joints to ensure your concrete withstands Australia\'s harsh climate without cracking.',
     image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_648gmq648gmq648g_wooot9.png',
     details: {
@@ -152,7 +152,7 @@ const services = [
       </svg>
     ),
     tag: 'STORMWATER MANAGEMENT',
-    headline: 'STORMWATER & DRAINAGE SYSTEMS',
+    headline: 'STORMWATER MANAGEMENT',
     body: 'Protect your property from flooding, soil erosion, and foundation damage with expertly engineered stormwater solutions. From sudden, heavy downpours to persistent pooling, we design and install highly effective drainage systems that channel water safely away from your home.',
     image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_qlgwwyqlgwwyqlgw_wwirja.png',
     details: {
@@ -206,7 +206,7 @@ export default function Services() {
             className="display-lg" 
             style={{ 
               color: 'var(--on-surface)', 
-              maxWidth: '600px',
+              maxWidth: '700px',
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
               transition: 'all 0.8s ease 0.3s'
@@ -220,6 +220,19 @@ export default function Services() {
               backgroundClip: 'text',
             }}>SERVICES</span>
           </h2>
+          <p style={{
+            fontFamily: "'Manrope', sans-serif",
+            fontSize: 'clamp(1rem, 1.3vw, 1.1rem)',
+            lineHeight: 1.7,
+            color: 'var(--on-surface-variant)',
+            maxWidth: '760px',
+            marginTop: '1rem',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'all 0.8s ease 0.45s'
+          }}>
+            24X Construction provides practical, durable external construction services for builders and residential projects. Our work is delivered with a focus on quality workmanship, efficient site coordination, and reliable project outcomes.
+          </p>
         </div>
 
         {/* Horizontal Services List */}
