@@ -212,7 +212,7 @@ export default function Services() {
               transition: 'all 0.8s ease 0.3s'
             }}
           >
-            SPECIALIST EXTERNAL
+            SPECIALIST EXTERNAL{' '}
             <span style={{
               background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
               WebkitBackgroundClip: 'text',
