@@ -212,13 +212,13 @@ export default function Services() {
               transition: 'all 0.8s ease 0.3s'
             }}
           >
-            Construction 
+            SPECIALIST EXTERNAL
             <span style={{
               background: 'linear-gradient(135deg, #FFC174 0%, #F59E0B 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>SERVICES</span>
+            }}>WORKS</span>
           </h2>
           <p style={{
             fontFamily: "'Manrope', sans-serif",
