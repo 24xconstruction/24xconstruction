@@ -117,7 +117,7 @@ const services = [
         <path d="M9 3v18"/>
       </svg>
     ),
-    tag: 'CONCRETE WORK',
+    tag: 'CONCRETE',
     headline: 'CONCRETE WORKS',
     body: 'Delivering high-quality, structurally sound concrete solutions for residential and commercial properties. From heavy-duty driveways to pristine alfresco spaces, our expert concreters use premium materials, proper steel reinforcement, and precise expansion joints to ensure your concrete withstands Australia\'s harsh climate without cracking.',
     image: 'https://res.cloudinary.com/dqdssjby3/image/upload/v1775644159/Gemini_Generated_Image_648gmq648gmq648g_wooot9.png',
