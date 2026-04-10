@@ -42,7 +42,7 @@ export default function Footer() {
               maxWidth: '320px',
               margin: '0 auto',
             }}>
-              Architectural dominance through structural precision. Building the legacy of tomorrow, today.
+              Stormwater, fencing, retaining walls, landscaping, and concrete works for residential builders.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
             width: '100%',
           }}>
             <span className="label-sm" style={{ color: 'var(--outline)' }}>
-              © 2024 24X CONSTRUCTION. ARCHITECTURAL DOMINANCE ASSURED.
+              © 2026 24X Construction. All rights reserved.
             </span>
           </div>
         </div>
