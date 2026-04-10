@@ -137,7 +137,7 @@ export default function ContactForm() {
                 transition: 'all 0.8s ease 0.1s'
               }}
             >
-              DEPLOYMENT CENTER
+              CONTACT
             </div>
             <h2
               className="display-md"
@@ -149,7 +149,7 @@ export default function ContactForm() {
                 transition: 'all 0.8s ease 0.3s'
               }}
             >
-              GET IN TOUCH
+              Get in Touch
             </h2>
 
             {/* Info items */}
@@ -216,7 +216,7 @@ export default function ContactForm() {
                 <div>
                   <div className="label-sm" style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>DIRECT LINE</div>
                   <a
-                    href="tel:+610480808600"
+                    href="tel:+61480808600"
                     style={{
                       fontFamily: "'Manrope', sans-serif",
                       fontSize: '0.9rem',
@@ -227,7 +227,7 @@ export default function ContactForm() {
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--on-surface-variant)')}
                   >
-                    +61 0480 808 600
+                    +61 480 808 600
                   </a>
                 </div>
               </div>
@@ -262,10 +262,10 @@ export default function ContactForm() {
                   </svg>
                 </div>
                 <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--on-surface)', marginBottom: '0.75rem' }}>
-                  MISSION BRIEF RECEIVED
+                  Send Enquiry
                 </h3>
                 <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--on-surface-variant)', maxWidth: '340px', margin: '0 auto 2rem' }}>
-                  Our engineering team will review your project brief and respond within 24 hours.
+                  We aim to respond to project enquiries within 24 hours.
                 </p>
                 <button
                   onClick={() => setFormState('idle')}
