@@ -2,10 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: {
-    default: '24X Construction',
-    template: '%s | 24X Construction',
-  },
+  title: '24X Construction',
   description: 'Residential construction services in Adelaide. Fencing, concreting, landscaping, retaining walls and more.',
   keywords: 'construction Adelaide, fencing, concreting, landscaping, retaining walls, residential construction',
   openGraph: {
