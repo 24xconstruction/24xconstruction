@@ -35,21 +35,21 @@ export default function ContactForm() {
 
     try {
       const fd = new FormData(e.currentTarget);
-      fd.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '');
-      fd.append('subject', `New Project Inquiry — ${formData.projectType || 'General'}`);
-      fd.append('from_name', '24X Construction Website');
+      const honeypot = fd.get('botcheck');
 
-      // Convert FormData into JSON for React integration
+      if (typeof honeypot === 'string' && honeypot.trim().length > 0) {
+        // Silently accept spam submissions so bots think the form worked.
+        setFormState('success');
+        return;
+      }
+
       const object = Object.fromEntries(fd);
-      const json = JSON.stringify(object);
-
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json',
         },
-        body: json,
+        body: JSON.stringify(object),
       });
 
       const data = await res.json();
@@ -277,6 +277,23 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {/* Honeypot field for bot detection */}
+                <input
+                  type="text"
+                  name="botcheck"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    width: '1px',
+                    height: '1px',
+                    opacity: 0,
+                    pointerEvents: 'none',
+                  }}
+                />
+
                 {/* Full Name */}
                 <div>
                   <input
