@@ -16,8 +16,8 @@ export default function Navbar() {
 
   const links = [
     { label: 'HOME', href: '/' },
-    { label: 'SERVICES', href: '/#services' },
-    { label: 'CONTACT', href: '/#contact' },
+    { label: 'SERVICES', href: '/services' },
+    { label: 'CONTACT', href: '/contact' },
   ];
 
   // Prevent hydration mismatch by ensuring consistent initial render
