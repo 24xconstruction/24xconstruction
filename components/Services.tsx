@@ -231,7 +231,7 @@ export default function Services() {
             transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'all 0.8s ease 0.45s'
           }}>
-            24X Construction provides practical, durable external construction services for builders and residential projects. Our work is delivered with a focus on quality workmanship, efficient site coordination, and reliable project outcomes.
+            24x Construction provides practical, durable external construction services for builders and residential projects. Our work is delivered with a focus on quality workmanship, efficient site coordination, and reliable project outcomes.
           </p>
         </div>
 
