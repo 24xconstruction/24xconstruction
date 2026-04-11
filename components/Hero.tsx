@@ -138,7 +138,7 @@ export default function Hero() {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease 0.6s'
         }}>
-          24X Construction delivers stormwater management, fencing, retaining walls, landscaping, and concrete works for residential construction projects. We provide practical, durable solutions with a strong focus on quality workmanship, efficient delivery, and reliable site outcomes.
+          24x Construction delivers stormwater management, fencing, retaining walls, landscaping, and concrete works for residential construction projects. We provide practical, durable solutions with a strong focus on quality workmanship, efficient delivery, and reliable site outcomes.
         </p>
 
         {/* CTA */}
