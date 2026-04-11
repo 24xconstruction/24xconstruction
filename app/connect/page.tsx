@@ -275,26 +275,7 @@ export default function ConnectPage() {
               padding: '1.25rem',
               marginTop: '0.5rem'
             }}>
-              <div style={{ 
-                fontFamily: "'Manrope', sans-serif", 
-                fontSize: '0.65rem', 
-                fontWeight: 700, 
-                letterSpacing: '0.15em', 
-                color: 'var(--secondary)',
-                textTransform: 'uppercase',
-                marginBottom: '0.5rem'
-              }}>
-                BEST USE FOR QR VISITORS
-              </div>
-              <p style={{
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: '0.85rem',
-                color: 'var(--on-surface-variant)',
-                lineHeight: 1.6,
-                margin: 0
-              }}>
-                Fast, clean and direct. One tap to call, one tap to email, or save the contact instantly.
-              </p>
+            
             </div>
 
           </div>
