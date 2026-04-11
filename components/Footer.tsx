@@ -50,7 +50,7 @@ export default function Footer() {
             width: '100%',
           }}>
             <span className="label-sm" style={{ color: 'var(--outline)' }}>
-              © 2026 24X Construction. All rights reserved.
+              © 2026 24x Construction. All rights reserved.
             </span>
           </div>
         </div>
