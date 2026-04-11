@@ -35,6 +35,14 @@ export default function ContactForm() {
 
     try {
       const fd = new FormData(e.currentTarget);
+      const honeypot = fd.get('botcheck');
+
+      if (typeof honeypot === 'string' && honeypot.trim().length > 0) {
+        // Silently accept spam submissions so bots think the form worked.
+        setFormState('success');
+        return;
+      }
+
       fd.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '');
       fd.append('subject', `New Project Inquiry — ${formData.projectType || 'General'}`);
       fd.append('from_name', '24X Construction Website');
@@ -277,6 +285,23 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {/* Honeypot field for bot detection */}
+                <input
+                  type="text"
+                  name="botcheck"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    width: '1px',
+                    height: '1px',
+                    opacity: 0,
+                    pointerEvents: 'none',
+                  }}
+                />
+
                 {/* Full Name */}
                 <div>
                   <input
