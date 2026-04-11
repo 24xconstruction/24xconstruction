@@ -56,7 +56,7 @@ export default function ConnectPage() {
               }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775822722/2_zzrimh.png"
+                  src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775841381/24xConstruction_on0otm.png"
                   alt="24X Construction Logo"
                   style={{ 
                     width: '100%', 
