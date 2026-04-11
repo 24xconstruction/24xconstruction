@@ -43,21 +43,13 @@ export default function ContactForm() {
         return;
       }
 
-      fd.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '');
-      fd.append('subject', `New Project Inquiry — ${formData.projectType || 'General'}`);
-      fd.append('from_name', '24X Construction Website');
-
-      // Convert FormData into JSON for React integration
       const object = Object.fromEntries(fd);
-      const json = JSON.stringify(object);
-
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json',
         },
-        body: json,
+        body: JSON.stringify(object),
       });
 
       const data = await res.json();

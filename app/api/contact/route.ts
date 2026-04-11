@@ -5,7 +5,13 @@ export const runtime = 'nodejs';
 export async function POST(req: NextRequest) {
   try {
     // --- 1. Parse body ---
-    let body: { name?: string; email?: string; projectType?: string; message?: string } = {};
+    let body: {
+      name?: string;
+      email?: string;
+      projectType?: string;
+      message?: string;
+      botcheck?: string;
+    } = {};
     try {
       body = await req.json();
     } catch {
@@ -15,9 +21,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, projectType, message } = body;
+    const { name, email, projectType, message, botcheck } = body;
 
-    // --- 2. Validate ---
+    // --- 2. Honeypot check ---
+    if (typeof botcheck === 'string' && botcheck.trim().length > 0) {
+      console.log('⚠️  Honeypot triggered: blocked suspected bot submission.');
+      return NextResponse.json({ success: true });
+    }
+
+    // --- 3. Validate ---
     if (!name || !email || !message) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
@@ -25,7 +37,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // --- 3. Log submission (always) ---
+    // --- 4. Log submission (always) ---
     console.log('=== CONTACT FORM RECEIVED ===');
     console.log('Name:', name);
     console.log('Email:', email);
@@ -33,7 +45,7 @@ export async function POST(req: NextRequest) {
     console.log('Message:', message);
     console.log('=============================');
 
-    // --- 4. Send via Web3Forms (optional, non-blocking) ---
+    // --- 5. Send via Web3Forms (optional, non-blocking) ---
     const apiKey = process.env.WEB3FORMS_KEY?.trim();
 
     if (apiKey && apiKey !== 'your_web3forms_access_key_here') {
@@ -80,7 +92,7 @@ export async function POST(req: NextRequest) {
       console.log('ℹ️  Web3Forms key not configured — submission logged to console only.');
     }
 
-    // --- 5. Always return success to the client ---
+    // --- 6. Always return success to the client ---
     return NextResponse.json({ success: true });
   } catch (topLevelErr) {
     // Absolute last-resort catch — should never reach here
