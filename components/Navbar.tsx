@@ -136,7 +136,7 @@ export default function Navbar() {
         <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
-            src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775841381/24xConstrunction_on0otm.png"
+            src="https://res.cloudinary.com/dqdssjby3/image/upload/v1775841381/24xConstruction_on0otm.png"
             alt="24X Construction Logo"
             style={{ 
               width: '180px', 
