@@ -267,17 +267,6 @@ export default function ConnectPage() {
               </a>
             </div>
 
-            {/* Footer Notice */}
-            <div className="connect-footer-notice" style={{
-              background: 'rgba(200, 198, 197, 0.02)',
-              border: '1px solid rgba(83, 68, 52, 0.15)',
-              borderRadius: '10px',
-              padding: '1.25rem',
-              marginTop: '0.5rem'
-            }}>
-            
-            </div>
-
           </div>
         </div>
       </main>
