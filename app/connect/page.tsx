@@ -82,7 +82,7 @@ export default function ConnectPage() {
                   fontWeight: 700, 
                   color: 'var(--on-surface)'
                 }}>
-                  24X Construction
+                  24x Construction
                 </span>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function ConnectPage() {
                 color: 'var(--primary)',
                 textTransform: 'uppercase'
               }}>
-                PARTNERS
+                Managing Directors
               </span>
               <h1 style={{ 
                 fontFamily: "'Manrope', sans-serif", 
